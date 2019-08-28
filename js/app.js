@@ -22,7 +22,13 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
             {
                 title: 'Search',
                 templateUrl: "/pages/search.html",
-                controller: 'searchCtrl'
+                controller: 'topnewsCtrl'
+            })
+        .when("/:post",
+            {
+                title: 'Article',
+                templateUrl: "/pages/article.html",
+                controller: 'mainCtrl'
             })
         .otherwise({
             redirectTo: '/'

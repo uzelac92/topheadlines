@@ -3,7 +3,7 @@
         <h3>Top 5 news by categories from <span class="text-uppercase">{{country}}</span></h3>
     </div>
     
-    <div class="col-12 p-4 border rounded">
+    <div class="col-12 p-4 border rounded" ng-controller="mainCtrl">
         <div class="card-text my-2">
             <h4>Entertainment 
                 <i ng-show="showMore" ng-click="showMore = !showMore" class="fas fa-angle-double-up"></i>
@@ -11,8 +11,8 @@
             </h4>
         </div>
         <div class="row row-eq-height my-3" ng-hide="showMore">
-            <div class="col-1 mx-auto align-items-center" ng-click="prevEnt()">
-                <i class="fas fa-chevron-left fa-3x" ng-show="showStart"></i>
+            <div class="col-1 mx-auto align-items-center">
+                <i class="fas fa-chevron-left fa-3x"  ng-click="prevEnt()" ng-show="showStart"></i>
             </div>
             <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="art in articles | limitTo:3">
                 <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
@@ -22,12 +22,12 @@
                         <p class="card-text my-2">{{art.description | cut:true:70:' ...'}}</p>
                     </div>
                     <div class="bd-highlight text-right w-100">
-                        <a ng-href="/article/hash(art.title)" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                        <a ng-href="/{{art.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
                     </div>
                 </div> 
             </div>
-            <div class="col-1 mx-auto align-items-center" ng-click="nextEnt()" >
-                <i class="fas fa-chevron-right fa-3x" ng-show="showEnd"></i>
+            <div class="col-1 mx-auto align-items-center"  >
+                <i class="fas fa-chevron-right fa-3x" ng-click="nextEnt()" ng-show="showEnd"></i>
             </div>
         </div>
         <div class="row row-eq-height my-3" ng-show="showMore">
@@ -39,7 +39,7 @@
                         <p class="card-text my-2">{{art.description | cut:true:70:' ...'}}</p>
                     </div>
                     <div class="bd-highlight text-right w-100">
-                        <a ng-href="/article/hash(art.title)" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                        <a ng-href="/{{art.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
                     </div>
                 </div> 
             </div>
@@ -52,8 +52,8 @@
             </h4>
         </div>
         <div class="row row-eq-height my-3" ng-hide="showScn">
-            <div class="col-1 mx-auto align-items-center" ng-click="prevScn()">
-                <i class="fas fa-chevron-left fa-3x" ng-show="showStartScn"></i>
+            <div class="col-1 mx-auto align-items-center">
+                <i class="fas fa-chevron-left fa-3x" ng-click="prevScn()" ng-show="showStartScn"></i>
             </div>
             <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="scn in sciences | limitTo:3">
                 <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
@@ -63,12 +63,12 @@
                         <p class="card-text my-2">{{art.description | cut:true:70:' ...'}}</p>
                     </div>
                     <div class="bd-highlight text-right w-100">
-                        <a ng-href="/article/hash(scn.title)" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                        <a ng-href="/{{scn.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
                     </div>
                 </div> 
             </div>
-            <div class="col-1 mx-auto align-items-center" ng-click="nextScn()" >
-                <i class="fas fa-chevron-right fa-3x" ng-show="showEndScn"></i>
+            <div class="col-1 mx-auto align-items-center" >
+                <i class="fas fa-chevron-right fa-3x" ng-click="nextScn()"  ng-show="showEndScn"></i>
             </div>
         </div>
         <div class="row row-eq-height my-3" ng-show="showScn">
@@ -80,7 +80,7 @@
                         <p class="card-text my-2">{{art.description | cut:true:70:' ...'}}</p>
                     </div>
                     <div class="bd-highlight text-right w-100">
-                        <a ng-href="/article/hash(scn.title)" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                        <a ng-href="/{{scn.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
                     </div>
                 </div> 
             </div>

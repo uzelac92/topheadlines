@@ -9,7 +9,7 @@ app.factory('webservice', function ($http) {
     obj.getCategory = function (lang,cat) {
         return $http.get('https://newsapi.org/v2/top-headlines?country='+lang+'&category='+cat+'&apiKey=2d06f2393cc341ccb78192d99fd7412f');
     }
-    
+
     return obj;
 
 });

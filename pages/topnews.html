@@ -1,5 +1,5 @@
-<div class="col-12" ng-controller="topnewsCtrl" ng-init="initNews()">
-    <div class="row row-eq-height">
+<div class="col-12" ng-controller="mainCtrl">
+    <div class="row row-eq-height" ng-controller="topnewsCtrl" ng-init="initNews()">
         <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="art in articles">
             <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
                 <div class="mb-auto bd-highlight">
@@ -8,7 +8,7 @@
                     <p class="card-text my-2">{{art.description | cut:true:70:' ...'}}</p>
                 </div>
                 <div class="bd-highlight text-right w-100">
-                    <a ng-href="/article/hash(art.title)" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    <a ng-href="/{{art.publishedAt}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
                 </div>
                 
             </div>

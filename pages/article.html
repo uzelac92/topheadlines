@@ -1,0 +1,23 @@
+<div class="col-12" ng-controller="mainCtrl" ng-init="initNews()">
+    <div class="card col-12 border-0">
+        <div class="card-text">
+            <h1 class="text-center">{{post.title}}</h1>
+        </div>
+        <div class="card-body">
+            <div class="col-12">
+                <span class="row float-left">{{post.author}}  |  {{post.publishedAt}}</span>
+            </div>
+            <img class="my-2 w-100" ng-src="{{post.urlToImage}}" alt="">
+
+            <span class="row float-right">{{post.source.name}}</span>
+        </div>
+        <div class="card-footer bg-transparent border-0">
+            <h5 class="text-justify">{{post.description}}</h5>
+            <h5 class="text-justify">{{post.content}}</h5>
+        </div>
+    </div>
+    <div class="card col-12 border-0">
+
+    </div>
+    
+</div>

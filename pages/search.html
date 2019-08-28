@@ -1,0 +1,23 @@
+<div class="col-12 p-3" ng-controller="topnewsCtrl" ng-init="initNews()">
+    <div class="card-text my-2">
+        <h3>Search top news from <span ng-if="country == 'gb'">Great Britain</span><span ng-if="country == 'us'">United States</span> by term:</h3>
+        <input type="text" class="form-control col-lg-6 col-12 mx-auto" placeholder="Enter item..." ng-model="searchItem">
+    </div>
+    
+    <div class="col-12" g-controller="mainCtrl">
+        <div class="row row-eq-height">
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="art in articles | filter:searchItem">
+                <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
+                    <div class="mb-auto bd-highlight">
+                        <h5 class="card-title my-2">{{art.title}}</h5>
+                        <img class="my-2 w-100" ng-src="{{art.urlToImage}}" alt="">
+                        <p class="card-text my-2">{{art.description | cut:true:70:' ...'}}</p>
+                    </div>
+                    <div class="bd-highlight text-right w-100">
+                        <a ng-href="/{{art.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
