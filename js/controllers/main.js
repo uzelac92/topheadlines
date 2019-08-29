@@ -5,7 +5,7 @@ app.controller('mainCtrl', function($scope,$routeParams,webservice,dataShare){
     $scope.$on('data_shared',function(){
         $scope.initNews();
     });
-
+    
     $scope.initNews = function() {
         webservice.getTopNews(dataShare.getData()).then(function (response) {
             var data = response.data.articles;

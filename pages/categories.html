@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="row row-eq-height my-3" ng-show="showMore">
-            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="art in articles">
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="art in arcs">
                 <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
                     <div class="mb-auto bd-highlight">
                         <h5 class="card-title my-2">{{art.title}}</h5>
@@ -72,15 +72,179 @@
             </div>
         </div>
         <div class="row row-eq-height my-3" ng-show="showScn">
-            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="scn in sciences">
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="scn in scies">
                 <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
                     <div class="mb-auto bd-highlight">
                         <h5 class="card-title my-2">{{scn.title}}</h5>
                         <img class="my-2 w-100" ng-src="{{scn.urlToImage}}" alt="">
-                        <p class="card-text my-2">{{art.description | cut:true:70:' ...'}}</p>
+                        <p class="card-text my-2">{{scn.description | cut:true:70:' ...'}}</p>
                     </div>
                     <div class="bd-highlight text-right w-100">
                         <a ng-href="/{{scn.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <hr class="my">
+        <div class="card-text my-2">
+            <h4>General 
+                <i ng-show="showGen" ng-click="showGen = !showGen" class="fas fa-angle-double-up"></i>
+                <i ng-hide="showGen" ng-click="showGen = !showGen" class="fas fa-angle-double-down"></i>
+            </h4>
+        </div>
+        <div class="row row-eq-height my-3" ng-hide="showGen">
+            <div class="col-1 mx-auto align-items-center">
+                <i class="fas fa-chevron-left fa-3x" ng-click="prevGen()" ng-show="showStartGen"></i>
+            </div>
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="gen in generals | limitTo:3">
+                <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
+                    <div class="mb-auto bd-highlight">
+                        <h5 class="card-title my-2">{{gen.title}}</h5>
+                        <img class="my-2 w-100" ng-src="{{gen.urlToImage}}" alt="">
+                        <p class="card-text my-2">{{gen.description | cut:true:70:' ...'}}</p>
+                    </div>
+                    <div class="bd-highlight text-right w-100">
+                        <a ng-href="/{{gen.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-1 mx-auto align-items-center" >
+                <i class="fas fa-chevron-right fa-3x" ng-click="nextGen()"  ng-show="showEndGen"></i>
+            </div>
+        </div>
+        <div class="row row-eq-height my-3" ng-show="showGen">
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="gen in gens">
+                <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
+                    <div class="mb-auto bd-highlight">
+                        <h5 class="card-title my-2">{{gen.title}}</h5>
+                        <img class="my-2 w-100" ng-src="{{gen.urlToImage}}" alt="">
+                        <p class="card-text my-2">{{gen.description | cut:true:70:' ...'}}</p>
+                    </div>
+                    <div class="bd-highlight text-right w-100">
+                        <a ng-href="/{{gen.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <hr class="my">
+        <div class="card-text my-2">
+            <h4>Health 
+                <i ng-show="showHel" ng-click="showHel = !showHel" class="fas fa-angle-double-up"></i>
+                <i ng-hide="showHel" ng-click="showHel = !showHel" class="fas fa-angle-double-down"></i>
+            </h4>
+        </div>
+        <div class="row row-eq-height my-3" ng-hide="showHel">
+            <div class="col-1 mx-auto align-items-center">
+                <i class="fas fa-chevron-left fa-3x" ng-click="prevHel()" ng-show="showStartHel"></i>
+            </div>
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="hel in health | limitTo:3">
+                <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
+                    <div class="mb-auto bd-highlight">
+                        <h5 class="card-title my-2">{{hel.title}}</h5>
+                        <img class="my-2 w-100" ng-src="{{hel.urlToImage}}" alt="">
+                        <p class="card-text my-2">{{hel.description | cut:true:70:' ...'}}</p>
+                    </div>
+                    <div class="bd-highlight text-right w-100">
+                        <a ng-href="/{{hel.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-1 mx-auto align-items-center" >
+                <i class="fas fa-chevron-right fa-3x" ng-click="nextHel()"  ng-show="showEndHel"></i>
+            </div>
+        </div>
+        <div class="row row-eq-height my-3" ng-show="showHel">
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="hel in hels">
+                <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
+                    <div class="mb-auto bd-highlight">
+                        <h5 class="card-title my-2">{{hel.title}}</h5>
+                        <img class="my-2 w-100" ng-src="{{hel.urlToImage}}" alt="">
+                        <p class="card-text my-2">{{hel.description | cut:true:70:' ...'}}</p>
+                    </div>
+                    <div class="bd-highlight text-right w-100">
+                        <a ng-href="/{{hel.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <hr class="my">
+        <div class="card-text my-2">
+            <h4>Technology 
+                <i ng-show="showTech" ng-click="showTech = !showTech" class="fas fa-angle-double-up"></i>
+                <i ng-hide="showTech" ng-click="showTech = !showTech" class="fas fa-angle-double-down"></i>
+            </h4>
+        </div>
+        <div class="row row-eq-height my-3" ng-hide="showTech">
+            <div class="col-1 mx-auto align-items-center">
+                <i class="fas fa-chevron-left fa-3x" ng-click="prevTech()" ng-show="showStartTech"></i>
+            </div>
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="tech in technology | limitTo:3">
+                <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
+                    <div class="mb-auto bd-highlight">
+                        <h5 class="card-title my-2">{{tech.title}}</h5>
+                        <img class="my-2 w-100" ng-src="{{tech.urlToImage}}" alt="">
+                        <p class="card-text my-2">{{tech.description | cut:true:70:' ...'}}</p>
+                    </div>
+                    <div class="bd-highlight text-right w-100">
+                        <a ng-href="/{{tech.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-1 mx-auto align-items-center" >
+                <i class="fas fa-chevron-right fa-3x" ng-click="nextTech()"  ng-show="showEndTech"></i>
+            </div>
+        </div>
+        <div class="row row-eq-height my-3" ng-show="showTech">
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="tech in techs">
+                <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
+                    <div class="mb-auto bd-highlight">
+                        <h5 class="card-title my-2">{{tech.title}}</h5>
+                        <img class="my-2 w-100" ng-src="{{tech.urlToImage}}" alt="">
+                        <p class="card-text my-2">{{tech.description | cut:true:70:' ...'}}</p>
+                    </div>
+                    <div class="bd-highlight text-right w-100">
+                        <a ng-href="/{{tech.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <hr class="my">
+        <div class="card-text my-2">
+            <h4>Sport 
+                <i ng-show="showSport" ng-click="showSport = !showSport" class="fas fa-angle-double-up"></i>
+                <i ng-hide="showSport" ng-click="showSport = !showSport" class="fas fa-angle-double-down"></i>
+            </h4>
+        </div>
+        <div class="row row-eq-height my-3" ng-hide="showSport">
+            <div class="col-1 mx-auto align-items-center">
+                <i class="fas fa-chevron-left fa-3x" ng-click="prevSport()" ng-show="showStartSport"></i>
+            </div>
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="sp in sport | limitTo:3">
+                <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
+                    <div class="mb-auto bd-highlight">
+                        <h5 class="card-title my-2">{{sp.title}}</h5>
+                        <img class="my-2 w-100" ng-src="{{sp.urlToImage}}" alt="">
+                        <p class="card-text my-2">{{sp.description | cut:true:70:' ...'}}</p>
+                    </div>
+                    <div class="bd-highlight text-right w-100">
+                        <a ng-href="/{{sp.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-1 mx-auto align-items-center" >
+                <i class="fas fa-chevron-right fa-3x" ng-click="nextSport()"  ng-show="showEndSport"></i>
+            </div>
+        </div>
+        <div class="row row-eq-height my-3" ng-show="showSport">
+            <div class="card col-lg-3 col-6 my-2 border-0" ng-repeat="sp in spos">
+                <div class="card px-3 py-2 border rounded h-100 d-flex align-items-start flex-column bd-highlight">
+                    <div class="mb-auto bd-highlight">
+                        <h5 class="card-title my-2">{{sp.title}}</h5>
+                        <img class="my-2 w-100" ng-src="{{sp.urlToImage}}" alt="">
+                        <p class="card-text my-2">{{sp.description | cut:true:70:' ...'}}</p>
+                    </div>
+                    <div class="bd-highlight text-right w-100">
+                        <a ng-href="/{{sp.publishedAd}}" class="text-right nounderline text-primary"><span>More <i class="fas fa-chevron-right"></i></span></a>
                     </div>
                 </div> 
             </div>
