@@ -117,8 +117,10 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
 
         if($scope.recycle.slice().length > 0) {
             $scope.showStart = true;
+        } else {
+            $scope.showStart = false;
         }
-        if( $scope.articles.slice().length == 1) {
+        if( $scope.articles.slice().length <= 3) {
             $scope.showEnd = false;
         }
         
@@ -131,7 +133,7 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         if($scope.recycle.slice().length == 0) {
             $scope.showStart = false;
         }
-        if( $scope.articles.slice().length == 1) {
+        if( $scope.articles.slice().length > 3) {
             $scope.showEnd = true;
         }
     }
@@ -141,9 +143,11 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         $scope.sciences.shift();
 
         if($scope.dump.slice().length > 0) {
-            $scope.showStartScn = true;
+            $scope.showStartScn = true ;
+        } else {
+            $scope.showStartScn = false ;
         }
-        if( $scope.sciences.slice().length == 1) {
+        if( $scope.sciences.slice().length <= 3) {
             $scope.showEndScn = false;
         }
         
@@ -155,7 +159,7 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         if($scope.dump.slice().length == 0) {
             $scope.showStartScn = false;
         }
-        if( $scope.sciences.slice().length == 1) {
+        if( $scope.sciences.slice().length > 3) {
             $scope.showEndScn = true;
         }
     }
@@ -164,10 +168,12 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         $scope.dumpGen.unshift($scope.generals[0]);
         $scope.generals.shift();
 
-        if($scope.dumpGen.slice().length == 0) {
+        if($scope.dumpGen.slice().length > 0) {
             $scope.showStartGen = true;
+        } else {
+            $scope.showStartGen = false;
         }
-        if( $scope.generals.slice().length == 1) {
+        if( $scope.generals.slice().length <= 3) {
             $scope.showEndGen = false;
         }
         
@@ -179,7 +185,7 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         if($scope.dumpGen.slice().length == 0) {
             $scope.showStartGen = false;
         }
-        if( $scope.generals.slice().length == 1) {
+        if( $scope.generals.slice().length > 3) {
             $scope.showEndGen = true;
         }
     }
@@ -188,10 +194,12 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         $scope.dumpHel.unshift($scope.health[0]);
         $scope.health.shift();
 
-        if($scope.dumpHel.slice().length == 0) {
+        if($scope.dumpHel.slice().length > 0) {
             $scope.showStartHel = true;
+        } else {
+            $scope.showStartHel = false;
         }
-        if( $scope.health.slice().length ==1) {
+        if( $scope.health.slice().length <= 3) {
             $scope.showEndHel = false;
         }
         
@@ -203,7 +211,7 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         if($scope.dumpHel.slice().length == 0) {
             $scope.showStartHel = false;
         }
-        if( $scope.health.slice().length ==1) {
+        if( $scope.health.slice().length > 3) {
             $scope.showEndHel = true;
         }
     }
@@ -212,10 +220,12 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         $scope.dumpTech.unshift($scope.technology[0]);
         $scope.technology.shift();
 
-        if($scope.dumpTech.slice().length == 0) {
+        if($scope.dumpTech.slice().length > 0) {
             $scope.showStartTech = true;
+        } else {
+            $scope.showStartTech = false;
         }
-        if( $scope.technology.slice().length ==1) {
+        if( $scope.technology.slice().length <= 3) {
             $scope.showEndTech = false;
         }
         
@@ -227,7 +237,7 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         if($scope.dumpTech.slice().length == 0) {
             $scope.showStartTech = false;
         }
-        if( $scope.technology.slice().length ==1) {
+        if( $scope.technology.slice().length > 3) {
             $scope.showEndTech = true;
         }
     }
@@ -235,10 +245,12 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
     $scope.nextSport = function() {
         $scope.dumpSport.unshift($scope.sport[0]);
         $scope.sport.shift();
-        if($scope.dumpSport.slice().length == 0) {
+        if($scope.dumpSport.slice().length > 0) {
             $scope.showStartSport = true;
+        } else {
+            $scope.showStartSport = false;
         }
-        if( $scope.sport.slice().length == 1) {
+        if( $scope.sport.slice().length <= 3) {
             $scope.showEndSport = false;
         }
         
@@ -250,7 +262,7 @@ app.controller('categoriesCtrl', function($scope,webservice,dataShare){
         if($scope.dumpSport.slice().length == 0) {
             $scope.showStartSport = false;
         }
-        if( $scope.sport.slice().length == 1) {
+        if( $scope.sport.slice().length > 3) {
             $scope.showEndSport = true;
         }
     }
